@@ -33,3 +33,16 @@ const arrowRight = document.querySelector(".arrow_right");
 	  arrowRight.addEventListener("click", () => {
 		console.log("FLECHE DROITE");
 	  });
+
+
+// Insertion des dots
+const dotsContainer = document.querySelector(".dots"); //création var container récup la div dots
+for (let i = 0; i < slides.length; i++) { // boucle pour definir le nbr de nvlle div a créer
+  const dot = document.createElement("div"); //création variable dot
+  dot.className = "dot";
+  dot.addEventListener("click", () => {
+    console.log("Clic sur le point indicatif " + i);
+    //logique pr changer le dit cliqué
+  });
+  dotsContainer.appendChild(dot);
+}
