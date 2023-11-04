@@ -27,11 +27,13 @@ const arrowRight = document.querySelector(".arrow_right");
 	// Controle fleche gauche
 	arrowLeft.addEventListener("click", () => {
 		console.log("FLECHE GAUCHE");
+		changeSlider(-1);
 	  });
 	
 	  // Controle fleche droite
 	  arrowRight.addEventListener("click", () => {
 		console.log("FLECHE DROITE");
+		changeSlider(1);
 	  });
 
 
@@ -45,4 +47,20 @@ for (let i = 0; i < slides.length; i++) { // boucle pour definir le nbr de nvlle
     //logique pr changer le dit cliqué
   });
   dotsContainer.appendChild(dot);
+}
+
+
+// Initialisation Index Slider via son index tableau
+let indexNum = 0;
+
+// Fonction Slider modifications via les param tableau slides, accès via l'index
+function changeSlider(sens) {
+	indexNum += sens;
+	if (indexNum > slides.length -1) 
+		indexNum = 0;
+	if (indexNum < 0)
+		indexNum = slides.length - 1;
+	document.querySelector(".banner-img").src = './assets/images/slideshow/' + slides[indexNum]['image'];
+	document.querySelector(".banner-text").innerHTML = slides[indexNum]['tagLine'];
+	{console.log(sens)}
 }
